@@ -1,11 +1,25 @@
-.todo-list{
+.todo-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.button{
-    background-color: gray;
+.button {
+    background-color: #d2dbef;
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.add-task-input {
+    width: 40%;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1rem;
+    outline: none;
 }
 
 ul {
@@ -23,4 +37,43 @@ li {
 
 li.highlighted {
     background-color: lightblue;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.add-task-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.half-input {
+    flex: 1.25;
+    max-width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button-margin {
+    margin-left: 1rem;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }

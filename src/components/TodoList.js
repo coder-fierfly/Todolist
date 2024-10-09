@@ -9,16 +9,18 @@ import AddTodoForm from "./AddTodoForm";
 const TodoList = observer(() => {
     const [highlightMode, setHighlightMode] = useState(null);
 
+    // четность и нечетность с точки зрения пользователя
     const isHighlighted = (index) => {
-        if (highlightMode === "even" && index % 2 === 0) {
-            return true;
-        } else if (highlightMode === "odd" && index % 2 !== 0) {
-            return true;
+        if (highlightMode === "even") {
+            return index % 2 !== 0;
+        } else if (highlightMode === "odd") {
+            return index % 2 === 0;
         }
         return false;
     };
+
     return (
-        <div>
+        <div className='todo-list-wrapper'>
             <h1>Todo List</h1>
             <AddTodoForm/>
 
@@ -28,11 +30,15 @@ const TodoList = observer(() => {
                 ))}
             </ul>
 
-            <button className="button" onClick={() => setHighlightMode("even")}>Highlight Even Items</button>
-            <button className="button" onClick={() => setHighlightMode("odd")}>Highlight Odd Items</button>
-            <button className="button" onClick={() => setHighlightMode(null)}>Clear Highlights</button>
-            <button className="button" onClick={() => todoStore.removeLastTodoItem()}>Remove Last Item</button>
-            <button className="button" onClick={() => todoStore.removeFirstTodoItem()}>Remove First Item</button>
+            <div className="button-container">
+                <button className="button" onClick={() => setHighlightMode("even")}>Выделение четных элементов</button>
+                <button className="button" onClick={() => setHighlightMode("odd")}>Выделение нечетных элементов</button>
+                <button className="button" onClick={() => setHighlightMode(null)}>Очистить выделение элементов</button>
+                <button className="button" onClick={() => todoStore.removeLastTodoItem()}>Удаление последнего елемента
+                </button>
+                <button className="button" onClick={() => todoStore.removeFirstTodoItem()}>Удаление первого элемента
+                </button>
+            </div>
         </div>
     );
 });

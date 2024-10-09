@@ -32,26 +32,26 @@ const TodoItem = observer(({task, isHighlighted, isEven}) => {
 
             {isEditing ? (
                 <>
-                    <input
+                    <input className='half-input'
                         type="text"
                         value={newTitle}
                         onChange={(e) => setNewTitle(e.target.value)}
                     />
                     <button className="button" onClick={handleSaveChange}>
-                        <img src={saveIcon} alt="Save" style={{width: '20px', height: '20px'}}/>
+                        <img src={saveIcon} alt="Save"/>
                     </button>
                 </>
             ) : (
                 <>
-                    <span>{task.completed ? <strike>{task.title}</strike> : task.title}</span>
+                    <span className='half-input'>{task.completed ? <strike>{task.title}</strike> : task.title}</span>
                     <button className="button" disabled={task.completed} onClick={() => setIsEditing(true)}>
-                        <img src={editIcon} alt="Edit" style={{width: '20px', height: '20px'}}/>
+                        <img src={editIcon} alt="Edit"/>
                     </button>
                 </>
             )}
 
             <button className='button' onClick={() => todoStore.removeTodoItem(task.id)}>
-                <img src={deleteIcon} alt="Delete" style={{width: '20px', height: '20px'}}/>
+                <img src={deleteIcon} alt="Delete"/>
             </button>
             {!task.completed && (
                 <button className="button" onClick={handleComplete}>

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 
 class TodoStore {
     todos = [];
@@ -40,13 +40,13 @@ class TodoStore {
 
     removeLastTodoItem() {
         if (this.todos.length > 0) {
-            this.todos.pop(); // Удаляет последний элемент
+            this.todos.pop();
         }
     }
 
     removeFirstTodoItem() {
         if (this.todos.length > 0) {
-            this.todos.shift(); // Удаляет первый элемент
+            this.todos.shift();
         }
     }
 }
